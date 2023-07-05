@@ -1,4 +1,4 @@
-import Button from "@mui/material/Button";
+import { Button } from "antd";
 import { Product } from "../../../model/Product";
 import { Wrapper } from "./CartItem.styles";
 
@@ -7,35 +7,33 @@ const CartItem: React.FC<CartItemProps> = ({
   addToCart,
   removeFromCart,
 }) => (
-  <Wrapper>
-    <div>
-      <h3>{item.title}</h3>
-      <div className="information">
+  <div className="flex" style={{ height: 150, padding: 4, margin: 16 }}>
+    <img
+      src={item.image}
+      alt={item.title}
+      style={{
+        width: 75,
+        height: "100%",
+        aspectRatio: 150 / 75,
+      }}
+    />
+    <div className="w-full p-4 content-between">
+      <h3 className="font-semibold">{item.title}</h3>
+      <div className="flex justify-between">
         <p>Price: ${item.price}</p>
         <p>Total: ${(item.amount! * item.price!).toFixed(2)}</p>
       </div>
-      <div className="buttons">
-        <Button
-          size="small"
-          disableElevation
-          variant="contained"
-          onClick={() => removeFromCart(item.id!)}
-        >
+      <div className="flex justify-between w-1/3 ">
+        <Button size="small" onClick={() => removeFromCart(item.id!)}>
           -
         </Button>
         <p>{item.amount}</p>
-        <Button
-          size="small"
-          disableElevation
-          variant="contained"
-          onClick={() => addToCart(item)}
-        >
+        <Button size="small" onClick={() => addToCart(item)}>
           +
         </Button>
       </div>
     </div>
-    <img src={item.image} alt={item.title} />
-  </Wrapper>
+  </div>
 );
 
 export interface CartItemProps {

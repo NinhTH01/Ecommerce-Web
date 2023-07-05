@@ -1,0 +1,29 @@
+.navLinks {
+  margin-left: 5px;
+  display: flex;
+}
+
+.tabs {
+  margin-top: 17px;
+  width: 100%;
+}
+.redBorder {
+  .ant-tabs-ink-bar {
+    background-color: #e94747;
+  }
+}
+.greenBorder {
+  .ant-tabs-ink-bar {
+    background-color: #24ad52;
+  }
+}
+.blueGreyBorder {
+  .ant-tabs-ink-bar {
+    background-color: #5b708b;
+  }
+}
+
+.drawerBody {
+  --tw-bg-opacity: 1;
+  background-color: rgb(203 213 225 / var(--tw-bg-opacity));
+}

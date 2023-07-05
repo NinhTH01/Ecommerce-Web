@@ -1,23 +1,14 @@
 import React from "react";
 import { Product } from "../../../model/Product";
 import CartItem from "../CartItem/CartItem";
-import { Wrapper } from "./Cart.styles";
 
 const Cart: React.FC<CartProps> = ({
   cartItems,
   addToCart,
   removeFromCart,
 }) => {
-  const calculateTotal = React.useCallback((items: Product[]) => {
-    return items.reduce(
-      (ack: number, item) => ack + item.amount! * item.price!,
-      0
-    );
-  }, []);
-
   return (
-    <Wrapper>
-      <h2>Your Shopping Cart</h2>
+    <div className="">
       {cartItems.length === 0 ? <p>No items in cart.</p> : null}
       {cartItems.map((item) => (
         <CartItem
@@ -27,8 +18,7 @@ const Cart: React.FC<CartProps> = ({
           removeFromCart={removeFromCart}
         />
       ))}
-      <h2>Total: ${calculateTotal(cartItems).toFixed(2)}</h2>
-    </Wrapper>
+    </div>
   );
 };
 
